@@ -11,18 +11,22 @@ tableData.forEach(d => {
     });
 
 var button=d3.select("#filter-btn");
-var inputUFODate=d3.select("#datetime");
-var inputValue = inputUFODate.property("valaue");
-
 
 button.on("click",handleClick);
 
     
 function handleClick(){
-    
+    var inputUFODate=d3.select("#datetime");
+    var inputValue = inputUFODate.property("value");
     
     console.log("a buttom was click");
     console.log(inputValue);
+
+    if(inputUFODate !=""){
+
+        data=data.filter(obj =>obj.datetime ==inputValue );
+        console.log(data);
+    }
     
     // function filterUFODate(dateUFO){
     //     return dateUFO.datetime == inputUFODate;
