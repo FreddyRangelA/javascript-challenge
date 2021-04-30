@@ -1,14 +1,29 @@
 // from data.js
 var tableData = data;
 var tbody = d3.select("tbody");
-var tbodydate = d3.select("tbodydate");
 
-tableData.forEach(d => {
-      //console.log(ufoReport);
-      var row = tbody.append("tr");
-      Object.values(d).forEach(td =>{row.append("td").text(td)});
-          
-    });
+
+var button=d3.select("#filter-btn-all");
+
+var inputUFODateAll=d3.select("#datetime");
+
+button.on("click",handleClickAll);
+
+
+function handleClickAll(){
+    tbody.html("");
+    console.log("a button was click")
+    tableData.forEach(d => {
+        //console.log(ufoReport);
+        var row = tbody.append("tr");
+        Object.values(d).forEach(td =>{row.append("td").text(td)});
+            
+      });
+    console.log(tableData);
+}
+
+
+
 
 var button=d3.select("#filter-btn");
 
@@ -18,34 +33,29 @@ button.on("click",handleClick);
 function handleClick(){
     var inputUFODate=d3.select("#datetime");
     var inputValue = inputUFODate.property("value");
-    
+    tbody.html("");
     console.log("a buttom was click");
     console.log(inputValue);
 
-    if(inputUFODate !=""){
+    if(inputValue !=""){
+        
+        function filterUFODate(dateUFO){
+            return dateUFO.datetime == inputValue;
+            
+             }
+        var filterDates =tableData.filter(filterUFODate);
+        console.log(filterDates);
 
-        data=data.filter(obj =>obj.datetime ==inputValue );
-        console.log(data);
+        filterDates.forEach(d =>{
+            var row = tbody.append("tr");
+            Object.values(d).forEach(td =>{row.append("td").text(td)})
+
+        })
     }
     
-    // function filterUFODate(dateUFO){
-    //     return dateUFO.datetime == inputUFODate;
-    // }
-    // var filterDates =tableData.filter(filterUFODate);
-    // console.log(filterDates);
-
-    //     filterDates.forEach(ed => {
-            
-
-    //         console.log(filterDates);
-    //         var row = tbody.append("tr");
-    //         Object.values(d).forEach(td =>{row.append("td").text(td)});
-                
-    //      });
+ 
 }
 
 
 
-
-console.log(inputUFODate)
 // YOUR CODE HERE!

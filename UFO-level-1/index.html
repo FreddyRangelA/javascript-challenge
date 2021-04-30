@@ -34,7 +34,7 @@
       <div class="row margin-top-50">
         <div class="col-md-2">
           <aside class="filters">
-            <div class="panel panel-default">
+            <div id="panel-default-filter" class="panel panel-default">
               <div class="panel-heading">Filter Search</div>
               <div class="panel-body">
                 <form>
@@ -46,31 +46,13 @@
                       </li>
                     </ul>
                   </div>
-                  <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                  <button id="filter-btn" type="button" class="btn btn-primary active">Filter Table</button>
+                  <button id="filter-btn-all" type="button" class="btn btn-primary active">Search all</button>
                 </form>
               </div>
             </div>
           </aside>
         </div>
-        <div class="col-md-10">
-          <div id="table-area" class="">
-            <table id="ufo-table" class="table table-striped">
-              <thead>
-                <tr>
-                  <th class="table-head">Date</th>
-                  <th class="table-head">City</th>
-                  <th class="table-head">State</th>
-                  <th class="table-head">Country</th>
-                  <th class="table-head">Shape</th>
-                  <th class="table-head">Duration</th>
-                  <th class="table-head">Comments</th>
-                </tr>
-              </thead>
-              <tbodydate></tbodydate>
-            </table>
-          </div>
-        </div>
-
 
         <div class="col-md-10">
           <div id="table-area" class="">
@@ -90,6 +72,7 @@
             </table>
           </div>
         </div>
+
       </div>
     </div>
     <footer class="footer">
