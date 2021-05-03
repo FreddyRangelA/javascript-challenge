@@ -24,9 +24,9 @@ function handleClickAll(){
 
 
 
-
+//buttom for filter
 var button=d3.select("#filter-btn");
-
+//wiring the buttom and the input value.
 button.on("click",handleClick);
 
     
